@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -s -e -p "Enter Target: "  target
+read -e -p "Enter Target: "  target
 git clone https://github.com/j3ssie/Osmedeus
 cd Osmedeus
 ./install.sh
