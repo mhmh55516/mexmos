@@ -2,4 +2,4 @@
 # /usr/bin/chromium-browser
 
 # Options to pass to chromium-browser
-CHROMIUM_FLAGS="--disable-setuid-sandbox --no-sandbox --disable-gpu --no-sandbox --disable-gpu-sandbox --reduce-gpu-sandbox --proxy-server="127.0.0.1:8081" --user-data-dir"
+CHROMIUM_FLAGS="--disable-setuid-sandbox --no-sandbox --disable-gpu --no-sandbox --disable-gpu-sandbox --reduce-gpu-sandbox --user-data-dir"
