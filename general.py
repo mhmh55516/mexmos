@@ -1,5 +1,8 @@
 import os
 import sys
+import time , os
+#from subprocess import Popen
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from lib.core import utils
 
@@ -16,7 +19,6 @@ from modules import vulnscan
 from modules import dirbscan
 from modules import corscan
 
-
 def handle(options):
     if utils.isFile(options.get('TARGET')):
         targets = utils.just_read(options.get('TARGET'), get_list=True)
@@ -27,6 +29,13 @@ def handle(options):
             single_handle(options)
     else:
         single_handle(options)
+
+def scan_ip_nmap(option):
+	f = open('/root/.osmedeus/workspaces/'+option+'/portscan/formatted-'+option+'.txt', "r")
+	for x in f:
+		ipadd = x.split(';;ports|')[0].replace("ip_address|", "")
+		portadd = x.split(';;ports|')[1]
+		os.system("nmap '"+ipadd+"' -p '"+portadd+"' -Pn -sV -sC -A -oN '/root/.osmedeus/workspaces/"+option+"/portscan/nmap-"+option+".txt' --append-output --min-rate=1000 --max-retries=1")
 
 def single_handle(options):
     subdomain.SubdomainScanning(options)
@@ -39,6 +48,7 @@ def single_handle(options):
     ipspace.IPSpace(options)
     portscan.PortScan(options)
     # vulnscan.VulnScan(options)
-    dirbscan.DirbScan(options)
+    #dirbscan.DirbScan(options)
     corscan.CORScan(options)
+    scan_ip_nmap(options['TARGET'] )
     os._exit(os.EX_OK)
