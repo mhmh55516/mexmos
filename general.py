@@ -36,9 +36,13 @@ def scan_ip_nmap(option):
 		ipadd = x.split(';;ports|')[0].replace("ip_address|", "")
 		portadd = x.split(';;ports|')[1]
 		os.system("nmap '"+ipadd+"' -p '"+portadd+"' -Pn -sV -sC -A -oN '/root/.osmedeus/workspaces/"+option+"/portscan/nmap-"+option+".txt' --append-output --min-rate=1000 --max-retries=1")
+		
+def brute_subdomain(option):
+	os.system("gobuster dns -d '"+option+"' -t 5000 -c -w '/root/Desktop/uploads/wordlist/sub_list_9.6M/all.txt' -o '/root/.osmedeus/workspaces/"+option+"/portscan/nmap-"+option+".txt'")
 
 def single_handle(options):
     subdomain.SubdomainScanning(options)
+    brute_subdomain(options['TARGET'])
     probing.Probing(options)
     # formatting.Formatting(options)
     fingerprint.Fingerprint(options)
@@ -50,5 +54,5 @@ def single_handle(options):
     # vulnscan.VulnScan(options)
     #dirbscan.DirbScan(options)
     corscan.CORScan(options)
-    scan_ip_nmap(options['TARGET'] )
+    scan_ip_nmap(options['TARGET'])
     os._exit(os.EX_OK)
