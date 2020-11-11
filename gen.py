@@ -39,7 +39,7 @@ def scan_ip_nmap(option):
 		
 def brute_subdomain(option):
     os.system(f"/root/go/bin/gobuster dns -d '"+option+"' -t 5000 -w '/root/all.txt' -o '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' &")
-    os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' && cat 'final-"+option+".com.txt' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' | sort -u -o '/root/.osmedeus/workspaces/"+option+"/subdomain/final-"+option+".txt'")
+    os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' && cat 'final-"+option+".com.txt' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' | tr "[A-Z]" "[a-z]" | sort -u -o '/root/.osmedeus/workspaces/"+option+"/subdomain/final-"+option+".txt'")
 
 def single_handle(options):
     subdomain.SubdomainScanning(options)
