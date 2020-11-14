@@ -38,8 +38,8 @@ def scan_ip_nmap(option):
 		os.system("nmap '"+ipadd+"' -p '"+portadd+"' -Pn -sV -sC -A -oN '/root/.osmedeus/workspaces/"+option+"/portscan/nmap-"+option+".txt' --append-output --min-rate=1000 --max-retries=1")
 '''		
 def brute_subdomain(option):
-    os.system(f"/root/go/bin/gobuster dns -d '"+option+"' -t 5000 -w '/root/all.txt' -o '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' &")
-    os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' && cat 'final-"+option+".com.txt' '/root/.osmedeus/workspaces/"+option+"/subdomain/force-"+option+"-gobuster.txt' | tr "[A-Z]" "[a-z]" | sort -u -o '/root/.osmedeus/workspaces/"+option+"/subdomain/final-"+option+".txt'")
+    os.system("/root/go/bin/gobuster dns -d '{0}' -t 5000 -w '/root/all.txt' -o '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' &".format(option))
+    os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' && cat 'final-{0}.com.txt' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' | tr '[A-Z]' '[a-z]' | sort -u -o '/root/.osmedeus/workspaces/{0}/subdomain/final{0}.txt'".format(option))
 
 def single_handle(options):
     subdomain.SubdomainScanning(options)
