@@ -50,7 +50,7 @@ def single_handle(options):
     screenshot.ScreenShot(options)
     linkfinding.LinkFinding(options)
     ipspace.IPSpace(options)
-    portscan.PortScan(options)
+    #portscan.PortScan(options)
     # vulnscan.VulnScan(options)
     # dirbscan.DirbScan(options)
     corscan.CORScan(options)
