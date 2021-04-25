@@ -38,7 +38,7 @@ def scan_ip_nmap(option):
 		os.system("nmap '"+ipadd+"' -p '"+portadd+"' -Pn -sV -sC -A -oN '/root/.osmedeus/workspaces/"+option+"/portscan/nmap-"+option+".txt' --append-output --min-rate=1000 --max-retries=1")
 '''		
 def brute_subdomain(option):
-    os.system("/root/go/bin/gobuster -m dns -d '{0}' -t 5000 -w '/root/all.txt' -o '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt'".format(option))
+    os.system("/root/go/bin/gobuster -m dns -u '{0}' -t 5000 -w '/root/all.txt' -o '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt'".format(option))
     os.system("python3 /root/get_subx.py '{0}'".format(option))
     os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' && cat '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' | tr '[A-Z]' '[a-z]' | sort -u -o '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt'".format(option))
     os.system("ssh 'port@last-one.duckdns.org' -o 'StrictHostKeyChecking no' -o ServerAliveInterval=60 -i '/tmp/516.pem' -f \"find /root/chaos/ -type f -name '{0}*' -exec cat {{}} + > /home/port/sent/{0}.txt\"".format(option))
