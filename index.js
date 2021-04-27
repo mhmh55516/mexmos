@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "http://169.254.169.254/latest/meta-data/hostname"); 
+oReq.open("GET", "http://169.254.169.254.xip.io/latest/meta-data/hostname"); 
 oReq.send();
