@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "https://169.254.169.254.xip.io/latest/meta-data/public-ipv4"); 
+oReq.open("GET", "https://169.254.169.254.xip.io/latest/meta-data/instance-type"); 
 oReq.send();
