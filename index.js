@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "/var/task/index.js"); 
+oReq.open("GET", "file:///var/task/index.js"); 
 oReq.send();
