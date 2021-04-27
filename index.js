@@ -1,6 +1,6 @@
 function reqListener () {
-    var encoded = encodeURI(this.responseText);
-    var b64 = btoa(this.responseText);
+    //var encoded = encodeURI(this.responseText);
+    //var b64 = btoa(this.responseText);
     var raw = this.getAllResponseHeaders();
     var iframe = document.createElement('iframe');
 	iframe.style.display = "none";
