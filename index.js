@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "http://localtest.me"); 
+oReq.open("GET", "http://localtest.me:80/"); 
 oReq.send();
