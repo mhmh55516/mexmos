@@ -43,7 +43,7 @@ def brute_subdomain(option):
     os.system("sed -i 's/Found: //g' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' && cat '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt' '/root/.osmedeus/workspaces/{0}/subdomain/force-{0}-gobuster.txt' | tr '[A-Z]' '[a-z]' | sort -u -o '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt'".format(option))
     os.system("ssh 'port@last-one.duckdns.org' -o 'StrictHostKeyChecking no' -o ServerAliveInterval=60 -i '/tmp/516.pem' -f \"find /root/chaos/ -type f -name '{0}*' -exec cat {{}} + > /home/port/sent/{0}.txt\"".format(option))
     os.system("rsync -avz -e \"ssh -o 'StrictHostKeyChecking no' -i '/tmp/516.pem'\" port@last-one.duckdns.org:\"/home/port/sent/{0}.txt\" '/root/.osmedeus/workspaces/{0}/subdomain/chaos-{0}.txt'".format(option))
-    #os.system("cat '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt' '/root/.osmedeus/workspaces/{0}/subdomain/chaos-{0}.txt' | tr '[A-Z]' '[a-z]' | sort -u -o '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt'".format(option))
+    os.system("cat '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt' '/root/.osmedeus/workspaces/{0}/subdomain/chaos-{0}.txt' | tr '[A-Z]' '[a-z]' | sort -u -o '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt'".format(option))
     #os.system("cat '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt' | grep -v \"@\" > '/root/.osmedeus/workspaces/{0}/subdomain/final-{0}.txt'".format(option))
 def single_handle(options):
     subdomain.SubdomainScanning(options)
