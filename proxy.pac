@@ -26,3 +26,4 @@ return "PROXY 1.2.3.4:8080";
 
 // DEFAULT RULE: All other traffic, use below proxies, in fail-over order.
 return "PROXY 192.168.56.1:8080;
+}
